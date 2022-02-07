@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
@@ -69,11 +71,12 @@ public class ObjectPooler : MonoBehaviour
         {
             GameObject objectToSpawn = poolDictionary[tag].Dequeue();
             int fileName = poolDictionary[tag].Count + 1;
+            string filePath = Environment.CurrentDirectory + "/Assets/Resources/" + fileName + ".png";
 
             objectToSpawn.SetActive(true);
             objectToSpawn.transform.position = position;
             objectToSpawn.GetComponent<Node>().nodeModel.value = (poolDictionary[tag].Count + 1).ToString();
-            objectToSpawn.GetComponent<SpriteRenderer>().sprite = SpriteController.instance.LoadNewSprite("C:/Users/USER/LinkIt/Assets/Resources/" + fileName + ".png");
+            objectToSpawn.GetComponent<SpriteRenderer>().sprite = SpriteController.instance.LoadNewSprite(filePath);
             //poolDictionary[tag].Enqueue(objectToSpawn);
 
             linkedListGO.AddFirst(objectToSpawn.GetComponent<Node>().nodeModel.value.ToString());
