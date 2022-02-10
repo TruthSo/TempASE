@@ -69,6 +69,13 @@ public class DatabaseController : MonoBehaviour
         ExecuteNonQuery(dbcmd);
     }
 
+    //todo Update Patient
+    //todo Delete Patient
+
+    //todo Add Score
+    //todo Update Score
+    //todo Delete Score
+
     private IDbDataParameter CreateParameter(IDbCommand dbcmd, string columnName,string value)
     {
         IDbDataParameter parameter = dbcmd.CreateParameter();
