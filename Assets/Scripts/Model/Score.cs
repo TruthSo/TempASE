@@ -5,11 +5,20 @@ using System.Text;
 
 
 public class Score{
-    public string PatientId;
-    public char GameMode;
+    public int Id;
+    public int PatientId;
+    public string GameMode;
     public DateTime TimeTaken;
     
-    public Score(string _PatientId, char _GameMode,DateTime _TimeTaken){
+    public Score(int _PatientId, string _GameMode,DateTime _TimeTaken){
+        PatientId = _PatientId;
+        GameMode = _GameMode;
+        TimeTaken = _TimeTaken;
+    }
+
+    public Score(int _Id, int _PatientId, string _GameMode, DateTime _TimeTaken)
+    {
+        Id = _Id;
         PatientId = _PatientId;
         GameMode = _GameMode;
         TimeTaken = _TimeTaken;

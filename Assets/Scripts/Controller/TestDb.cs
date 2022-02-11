@@ -7,12 +7,17 @@ public class TestDb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DatabaseController dbcontext = new DatabaseController();
-        dbcontext.SelectAllPatients();
-        dbcontext.SelectPatientById(2);
+        DatabaseController db = new DatabaseController();
+        db.SelectAllPatients();
+        db.SelectPatientById(2);
 
-        Patient patient_a = new Patient("Bolo");
-        dbcontext.AddPatient(patient_a);
+        Patient patient_a = new Patient("Jack");
+        db.AddPatient(patient_a);
+
+        Patient existing_patient = new Patient("4","Bollo");
+        db.UpdatePatient(existing_patient);
+
+        db.DeletePatient(5);
     }
 
     // Update is called once per frame
